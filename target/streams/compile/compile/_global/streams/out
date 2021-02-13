@@ -1,0 +1,7 @@
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Lumi\Desktop\10.02\play-wat-vmware_2\play-wat-vmware\app\views\index.scala.html:14:11: object JavaConverters in package collection is deprecated (since 2.13.0): Use `scala.jdk.CollectionConverters` instead[0m
+[0m[[0m[33mwarn[0m] [0m[0m    @form.globalErrors.asScala.map { error: play.data.validation.ValidationError =>[0m
+[0m[[0m[33mwarn[0m] [0m[0m          ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Lumi\Desktop\10.02\play-wat-vmware_2\play-wat-vmware\app\views\listWidgets.scala.html:28:15: object JavaConverters in package collection is deprecated (since 2.13.0): Use `scala.jdk.CollectionConverters` instead[0m
+[0m[[0m[33mwarn[0m] [0m[0m        @form.globalErrors.asScala.map { error: play.data.validation.ValidationError =>[0m
+[0m[[0m[33mwarn[0m] [0m[0m              ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mtwo warnings found[0m

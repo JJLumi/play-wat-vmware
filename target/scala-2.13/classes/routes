@@ -1,0 +1,18 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                   controllers.VMServerController.setCredentials(request: Request)
+GET     /listvms                            controllers.VMServerController.listVMs()
+GET     /startvm/:vmId                    controllers.VMServerController.startVM(vmId: String)
+GET     /stopvm/:vmName                     controllers.VMServerController.stopVM(vmName: String)
+GET     /suspendvm/:vmName                  controllers.VMServerController.suspendVM(vmName: String)
+GET     /resetvm/:vmName                    controllers.VMServerController.resetVM(vmName: String)
+
+# Widgets
+GET     /widgets                    controllers.WidgetController.listWidgets(request: Request)
+POST    /widgets                    controllers.WidgetController.createWidget(request: Request)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
