@@ -97,8 +97,8 @@ public class SSHService {
         return result;
 
     }
-
-    public VMPowerState powerCheck (String VMid) throws IOException {
+ /*
+    public VMPowerState powerCheck (String vmid) throws IOException {
         final SSHClient ssh = new SSHClient();
         ssh.addHostKeyVerifier(new PromiscuousVerifier());
         ssh.connect(connection.getServer(), connection.getPort());
@@ -107,7 +107,7 @@ public class SSHService {
         try {
             ssh.authPassword(connection.getUsername(), connection.getPassword());
             session = ssh.startSession();
-            final Command cmd = session.exec("vim-cmd vmsvc/power.getstate " +VMid); //tutaj przekazać VMid
+            final Command cmd = session.exec("vim-cmd vmsvc/power.getstate " +vmid); //tutaj przekazać VMid
             res = IOUtils.readFully(cmd.getInputStream()).toString();
             cmd.join(5, TimeUnit.SECONDS);
             System.out.println(pow);
@@ -115,5 +115,5 @@ public class SSHService {
             return stringToVmList(pow);
         }
     }
-
+*/
 }
