@@ -65,6 +65,26 @@ public class VMServerController extends Controller {
             return ok(views.html.vmlist.render(asScala(infos)));
         }
     }
+/*
+    public Result powerstateVMs(){
+        List<VMPowerState> state = new ArrayList<>();
+        try{
+            System.out.println("server: "+vmConnection.getServer());
+            System.out.println("server: "+vmConnection.getUsername());
+            SSHService ssh = new SSHService(vmConnection);
+            state = ssh.powerCheck();
+
+            }
+            catch (Exception ex) {
+                logger.error("ERROR: " + ex.getMessage());
+                return ok(views.html.vmlist.render(asScala(state)));
+        }
+            finally {
+            return  ok(views.html.vmlist.render(asScala(state)));
+        }
+
+    }
+*/
 
 
     public Result stopVM(String vmId) { //vmID

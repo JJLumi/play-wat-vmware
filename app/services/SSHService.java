@@ -97,7 +97,7 @@ public class SSHService {
         return result;
 
     }
- /*
+
     public VMPowerState powerCheck (String vmid) throws IOException {
         final SSHClient ssh = new SSHClient();
         ssh.addHostKeyVerifier(new PromiscuousVerifier());
@@ -115,5 +115,5 @@ public class SSHService {
             return stringToVmList(pow);
         }
     }
-*/
+
 }
