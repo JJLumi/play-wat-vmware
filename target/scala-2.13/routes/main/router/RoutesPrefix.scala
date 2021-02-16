@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/Lumi/Desktop/10.02/play-wat-vmware_2/play-wat-vmware/conf/routes
-// @DATE:Wed Feb 10 16:47:26 CET 2021
+// @SOURCE:/Users/kris/Projects/wat/play-wat-vmware/conf/routes
+// @DATE:Tue Feb 16 07:47:25 CET 2021
 
 
 package router {

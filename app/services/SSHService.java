@@ -55,6 +55,7 @@ public class SSHService {
             ssh.disconnect();
         }
     }
+
     public List<VMInfo> listVms() throws IOException {
         final SSHClient ssh = new SSHClient();
         ssh.addHostKeyVerifier(new PromiscuousVerifier());
@@ -85,20 +86,20 @@ public class SSHService {
     private List<VMInfo> stringToVmList(String res) {
         String[] arr = res.split("\n");
         System.out.println(arr[0]);
-       List<VMInfo> result = new ArrayList<VMInfo>();
+        List<VMInfo> result = new ArrayList<VMInfo>();
         for (int i = 1; i < arr.length; i++) {
             // accessing each element of array
             String line = arr[i];
             System.out.println(line);
             String[] vmarray = line.split("\\s+");
             System.out.println(Arrays.toString(vmarray));
-            result.add(new VMInfo(vmarray[1],vmarray[0]));
+            result.add(new VMInfo(vmarray[1], vmarray[0]));
         }
         return result;
 
     }
 
-    public VMPowerState powerCheck (String VMid) throws IOException {
+    public VMPowerState powerCheck(String VMid) throws IOException {
         final SSHClient ssh = new SSHClient();
         ssh.addHostKeyVerifier(new PromiscuousVerifier());
         ssh.connect(connection.getServer(), connection.getPort());
@@ -107,13 +108,25 @@ public class SSHService {
         try {
             ssh.authPassword(connection.getUsername(), connection.getPassword());
             session = ssh.startSession();
-            final Command cmd = session.exec("vim-cmd vmsvc/power.getstate " +VMid); //tutaj przekazać VMid
-            res = IOUtils.readFully(cmd.getInputStream()).toString();
+            final Command cmd = session.exec("vim-cmd vmsvc/power.getstate " + VMid); //tutaj przekazać VMid
+            pow = IOUtils.readFully(cmd.getInputStream()).toString();
             cmd.join(5, TimeUnit.SECONDS);
             System.out.println(pow);
             con.writer().print("\n** exit status: " + cmd.getExitStatus());
-            return stringToVmList(pow);
+            return stringToPowerState(pow);
+        } finally {
+            try {
+                if (session != null) {
+                    session.close();
+                }
+            } catch (IOException e) {
+                // Do Nothing
+            }
+            ssh.disconnect();
         }
     }
 
+    private VMPowerState stringToPowerState(String res) {
+        return new VMPowerState(""); //todo: convert string to power state obj
+    }
 }
